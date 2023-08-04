@@ -8,6 +8,7 @@ Routes:
 from flask import Flask
 from flask import render_template, url_for
 from models import storage
+import uuid
 
 
 app = Flask(__name__)
@@ -16,13 +17,16 @@ app = Flask(__name__)
 @app.route("/hbnb", strict_slashes=False)
 def hbnb():
     """Display the HTML page for hbnb home page."""
+    """Cache_id"""
+    cache_id = str(uuid.uuid4())
     amenities = storage.all("Amenity")
     places = storage.all("Place")
     states = storage.all("State")
-    return render_template("100-hbnb.html",
+    return render_template("0-hbnb.html",
                            amenities=amenities,
                            places=places,
-                           states=states)
+                           states=states,
+                           cache_id = cache_id)
 
 
 @app.teardown_appcontext
