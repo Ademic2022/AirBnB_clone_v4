@@ -60,7 +60,6 @@ $('document').ready(function () {
                 <p>${place.number_bathrooms} Bathroom${place.number_bathrooms !== 1 ? 's' : ''}</p>
               </div>
             </div>
-            <div class="user"><b>Owner</b>:${user.first_name} ${user.last_name}</div>
             <div class="description">
               ${place.description}
             </div>
