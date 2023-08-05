@@ -3,13 +3,16 @@
 	<head>
 		<title>AirBnB clone</title>
 
-		<link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.ico') }}"/>
+		<link rel="shortcut icon" href="{{ url_for('static', filename='images/icon.ico') }}?cache_id={{ cache_id }}"/>
+		
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/4-common.css') }}?cache_id={{ cache_id }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/3-header.css') }}?cache_id={{ cache_id }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/3-footer.css') }}?cache_id={{ cache_id }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/6-filters.css') }}?cache_id={{ cache_id }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/8-places.css') }}?cache_id={{ cache_id }}"/>
 
-		<link rel="stylesheet" href="{{ url_for('static', filename='styles/4-common.css') }}"/>
-		<link rel="stylesheet" href="{{ url_for('static', filename='styles/3-header.css') }}"/>
-		<link rel="stylesheet" href="{{ url_for('static', filename='styles/3-footer.css') }}"/>
-		<link rel="stylesheet" href="{{ url_for('static', filename='styles/6-filters.css') }}"/>
-		<link rel="stylesheet" href="{{ url_for('static', filename='styles/8-places.css') }}"/>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="{{ url_for('static', filename='scripts/1-hbnb.js') }}?cache_id={{ cache_id }}"></script>
 	</head>
     <body>
 		<header>
@@ -44,7 +47,10 @@
                     <h4>Internet, Kitchen...</h4>
                     <ul class="popover">
                         {% for amenity in amenities.values()|sort(attribute="name") %}
-                            <li><h4>{{ amenity.name }}</h4></li>
+                            <li>
+                                <input type="checkbox" data-name=":amenity_name" data-id=":amenity_id">
+                                <h4>{{ amenity.name }}</h4>
+                            </li>
                         {% endfor %}
                     </ul>
                 </div>
