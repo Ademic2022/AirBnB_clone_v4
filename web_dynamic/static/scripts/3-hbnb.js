@@ -8,9 +8,8 @@ $('document').ready(function () {
       }
       $('.amenities h4').text(Object.values(amenities).join(', '));
     });
-});
-$('document').ready(function() {
-// Function to update the API status
+    
+    // Function to update the API status
     function updateApiStatus() {
         $.get("http://0.0.0.0:5001/api/v1/status/", function(data) {
             if (data.status === "OK") {
@@ -23,7 +22,6 @@ $('document').ready(function() {
 
     // Initial update
     updateApiStatus();
-
     // Refresh status every 5 seconds
     setInterval(updateApiStatus, 5000);
-}); 
+});
