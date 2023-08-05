@@ -48,8 +48,7 @@
                     <ul class="popover">
                         {% for amenity in amenities.values()|sort(attribute="name") %}
                             <li>
-                                <input type="checkbox" data-name=":amenity_name" data-id=":amenity_id">
-                                <h4>{{ amenity.name }}</h4>
+                                 <input type="checkbox" data-id="{{ amenity.id }}" data-name="{{ amenity.name }}">{{ amenity.name }}</input>
                             </li>
                         {% endfor %}
                     </ul>
