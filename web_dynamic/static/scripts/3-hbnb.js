@@ -24,4 +24,57 @@ $('document').ready(function () {
     updateApiStatus();
     // Refresh status every 5 seconds
     setInterval(updateApiStatus, 5000);
+
+    // 3-hbnb.js
+
+
+
+  // Function to send a POST request and get places data
+  function getPlacesData() {
+    $.ajax({
+      type: 'POST',
+      url: 'http://0.0.0.0:5001/api/v1/places_search',
+      contentType: 'application/json',
+      data: JSON.stringify({}), // Empty dictionary as the body
+      success: function (data) {
+        // Loop through the places data and create article tags
+        const placesSection = $('section.places');
+        data.forEach(function (place) {
+          const article = $('<article></article>');
+          article.html(`
+            <div class="headline">
+              <h2>${place.name}</h2>
+              <div class="price_by_night">$${place.price_by_night}</div>
+            </div>
+            <div class="information">
+              <div class="max_guest">
+                <div class="guest_icon"></div>
+                <p>${place.max_guest} Guest${place.max_guest !== 1 ? 's' : ''}</p>
+              </div>
+              <div class="number_rooms">
+                <div class="bed_icon"></div>
+                <p>${place.number_rooms} Bedroom${place.number_rooms !== 1 ? 's' : ''}</p>
+              </div>
+              <div class="number_bathrooms">
+                <div class="bath_icon"></div>
+                <p>${place.number_bathrooms} Bathroom${place.number_bathrooms !== 1 ? 's' : ''}</p>
+              </div>
+            </div>
+            <div class="user"><b>Owner</b>:${user.first_name} ${user.last_name}</div>
+            <div class="description">
+              ${place.description}
+            </div>
+          `);
+          placesSection.append(article);
+        });
+      },
+      error: function (error) {
+        console.error('Error fetching places data:', error);
+      },
+    });
+  }
+
+  // Call the function to get places data when DOM is loaded
+  getPlacesData();
+
 });
