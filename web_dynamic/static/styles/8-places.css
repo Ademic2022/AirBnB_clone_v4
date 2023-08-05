@@ -32,7 +32,11 @@ article {
 	height: 80px;	
 	width: 100%;
 }
-
+.headline h2{
+	margin:6px 75px 6px 0;
+	text-align: left;
+	font-size: 25px;
+}
 .price_by_night {
 	display: flex;
 	justify-content: center;
