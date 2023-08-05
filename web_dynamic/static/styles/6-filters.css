@@ -55,10 +55,12 @@ section.filters .locations h4, section.filters .amenities h4 {
     background-color: #FAFAFA;
     border: solid #DDDDDD 1px;
     border-radius: 4px;
-    margin-top: 6%;
+    top: 2%;
     padding:25px 10% 20px;
     z-index: 1;
     margin-left: -30px;
+    height: 200px;
+    overflow: scroll;
 }
 section.filters .locations:hover > .popover, section.filters .amenities:hover > .popover{
     visibility: visible;
