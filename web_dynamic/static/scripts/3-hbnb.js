@@ -69,11 +69,18 @@ $('document').ready(function () {
       },
       error: function (error) {
         console.error('Error fetching places data:', error);
+        // Display error message in the article section
+        displayErrorMessage('Error fetching places data. Please try again later or check your API connection.');
       },
     });
   }
 
   // Call the function to get places data when DOM is loaded
   getPlacesData();
+
+  function displayErrorMessage(message) {
+    const errorMessageElement = $('#error-message');
+    errorMessageElement.text(message);
+  }
 
 });
