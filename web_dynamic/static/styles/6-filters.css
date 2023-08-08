@@ -65,9 +65,10 @@ section.filters .locations h4, section.filters .amenities h4 {
 section.filters .locations:hover > .popover, section.filters .amenities:hover > .popover{
     visibility: visible;
 }
-.popover li h2{
-    padding: 0;
+.popover li h2, .popover li h4{
+    padding: 0 10px;
     margin: 0;
+    display: inline-flex;
 }
 .popover_list{
     padding:0px;
@@ -75,6 +76,11 @@ section.filters .locations:hover > .popover, section.filters .amenities:hover > 
     padding-left: 10%;
 }
 .popover ul, .popover li{
-    padding: 3px 0;
+    padding: 3px 10px;
     list-style: none;
+}
+.popover li h4{
+    padding: 0 10px;
+    margin-left: 10px;
+    display: inline-flex;
 }
